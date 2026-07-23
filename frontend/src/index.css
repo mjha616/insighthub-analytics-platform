@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-900 font-sans antialiased transition-colors duration-150;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body.dark {
+    @apply bg-zinc-950 text-zinc-50;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 rounded-full hover:bg-zinc-300 transition-colors;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800 hover:bg-zinc-700;
+}
+
+/* Custom Selection style */
+::selection {
+  background-color: rgba(128, 90, 213, 0.15); /* Light brand purple tint */
+  color: #6b46c1;
+}
+
+.dark ::selection {
+  background-color: rgba(159, 122, 234, 0.25);
+  color: #e9e1fa;
+}
+
+/* Dot Pattern Background Overlay (similar to Vercel/Linear) */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.dark .bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Clean background layouts for Light/Dark transitions */
+.main-bg {
+  @apply bg-zinc-50/70 dark:bg-zinc-950;
+}
+
+/* Premium Border outlines */
+.border-premium {
+  @apply border border-zinc-200 dark:border-zinc-800/80;
+}
+
+.border-premium-hover {
+  @apply hover:border-zinc-300 dark:hover:border-zinc-700;
+}
+
+/* Sleek dashboard card style (replaces excessive glassmorphism) */
+.premium-card {
+  @apply bg-white dark:bg-zinc-900 border border-zinc-200/85 dark:border-zinc-800/80 shadow-premium rounded-lg transition-all duration-150;
+}
+
+/* Focused UI highlight ring styling */
+.focus-premium {
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500;
+}
+
+/* Interactive item animation classes */
+.micro-interactive {
+  @apply active:scale-[0.98] transition-transform duration-100;
+}
